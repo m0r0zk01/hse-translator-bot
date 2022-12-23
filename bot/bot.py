@@ -80,6 +80,9 @@ async def save(message: types.Message):
 
     await message.reply('Done!')
 
+def quote_tags(text):
+    return text.replace('<', '\<').replace('>', '\>')
+
 @dp.message_handler(commands=['list'])
 async def save(message: types.Message):
     cur.execute(f'''
@@ -89,7 +92,7 @@ async def save(message: types.Message):
 
     reply_text = 'Your list:\n\n' if len(result) != 0 else 'Your list is empty:( Reply /save to some text to save it'
     for i, row in enumerate(result):
-        reply_text += f'{i}. {row[2]} - <span class="tg-spoiler">{row[3]}</span>\n'
+        reply_text += f'{i}. {quote_tags(row[2])} - <span class="tg-spoiler">{quote_tags(row[3])}</span>\n'
     await message.reply(reply_text, parse_mode='HTML')
 
 @dp.message_handler(commands=['rand'])
@@ -105,7 +108,7 @@ async def rand(message: types.Message):
     
     reply_text = 'Your random phrase:\n'
     ind = randint(0, len(result) - 1)
-    reply_text += f'{result[ind][2]} - <span class="tg-spoiler">{result[ind][3]}</span>\n'
+    reply_text += f'{quote_tags(result[ind][2])} - <span class="tg-spoiler">{quote_tags(result[ind][3])}</span>\n'
     await message.reply(reply_text, parse_mode='HTML')
 
 @dp.message_handler(commands=['delete'])
