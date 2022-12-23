@@ -6,12 +6,18 @@ FOLDER_ID = os.getenv('FOLDER_ID')
 
 HELP_MESSAGE = '''
 Hello!
-This bot allows you to translate texts from any language to russian!
 
+This bot allows you to translate texts from any language to Russian and vice versa:
 • /start or /help - see this message
 • /ru - reply this to message to translate it to Russian
-• /to-<lang_code> - reply this to message to translate it to any other language, specified by lang_code parameter. E.g. /to_en translates message to English
-• /codes - get the language codes list
+• /to-[lang_code] - reply this to message to translate it to any other language, specified by lang_code parameter. E.g. /to_en translates message to English
+• /codes - get the list of supported language codes
+
+You can also save any phrase and its translation to your list:
+• /save - reply this to message to save text to your list
+• /list - display your list
+• /rand - get random phrase and its spoilered translation
+• /delete [index] - delete phrase from list by its index(taken from /list command)
 '''
 
 LANGUAGE_CODES = '''
