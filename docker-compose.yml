@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+  bot:
+    build: bot
+    depends_on:
+      - db
+    ports:
+      - "31337:31337"
+    volumes:
+      - .:/code
+
+volumes:
+  postgres_data:
