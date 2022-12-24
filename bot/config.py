@@ -1,8 +1,16 @@
 import os
+import aiohttp
 
 TG_BOT_TOKEN = os.getenv('TG_BOT_TOKEN')
-IAM_TOKEN = os.getenv('IAM_TOKEN')
+YA_OAUTH_TOKEN = os.getenv('YA_OAUTH_TOKEN')
+IAM_TOKEN = ''
 FOLDER_ID = os.getenv('FOLDER_ID')
+
+async def update_iam_token():
+    global IAM_TOKEN
+    async with aiohttp.ClientSession() as session:
+        async with session.post('https://iam.api.cloud.yandex.net/iam/v1/tokens', json={"yandexPassportOauthToken": YA_OAUTH_TOKEN}) as response:
+            IAM_TOKEN = (await response.json())['iamToken']
 
 HELP_MESSAGE = '''
 Hello!

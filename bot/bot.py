@@ -14,11 +14,11 @@ dp = Dispatcher(bot)
 api = ya_translator_api.YaTranslatorApi()
 
 conn = psycopg2.connect(
-    database = "db",
-    user = "postgres",
-    password ="postgres",
-    port = "5432",
-    host = "db"
+    database = 'db',
+    user = 'postgres',
+    password = 'postgres',
+    port = '5432',
+    host = 'db',
 )
 
 cur = conn.cursor()
