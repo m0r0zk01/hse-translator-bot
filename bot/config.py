@@ -18,7 +18,7 @@ Hello!
 This bot allows you to translate texts from any language to Russian and vice versa:
 • /start or /help - see this message
 • /ru - reply this to message to translate it to Russian
-• /to-[lang_code] - reply this to message to translate it to any other language, specified by lang_code parameter. E.g. /to_en translates message to English
+• /to-[lang_code] - reply this to message to translate it to any other language, specified by lang_code parameter. E.g. /to-en translates message to English
 • /codes - get the list of supported language codes
 
 You can also save any phrase and its translation to your list:
