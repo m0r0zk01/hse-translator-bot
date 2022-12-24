@@ -81,7 +81,7 @@ async def save(message: types.Message):
     await message.reply('Done!')
 
 def quote_tags(text):
-    return text.replace('<', '\<').replace('>', '\>')
+    return text.replace('<', '&lt;').replace('>', '&gt;').replace('&', '&amp;')
 
 @dp.message_handler(commands=['list'])
 async def save(message: types.Message):
@@ -137,8 +137,8 @@ async def delete(message: types.Message):
     cur.execute(f'''
         DELETE FROM texts WHERE id=%s;
     ''', (result[ind][0], ))
-    
     conn.commit()
+
     await message.reply('Done!')
 
 def db_init():
