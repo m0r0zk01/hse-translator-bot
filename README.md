@@ -5,7 +5,7 @@ yet another dumb bot for HSE course
 
 - clone this repo: `git clone https://github.com/m0r0zk01/hse-translator-bot.git`
 - set environment variables:
-  - `IAM_TOKEN` - Yandex.Cloud token
+  - `YA_OAUTH_TOKEN` - Yandex OAuth token
   - `FOLDER_ID` - Yandex.Cloud folder id
   - `TG_BOT_TOKEN` - Telegram bot token
 - `./build.sh` - build
